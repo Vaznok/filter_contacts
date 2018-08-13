@@ -1,0 +1,7 @@
+#Custom ignore
+.idea
+logs
+target
+*.iml
+
+

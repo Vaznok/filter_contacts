@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS contact(
+    id BIGINT AUTO_INCREMENT,
+    name VARCHAR NOT NULL ,
+    PRIMARY KEY(id),
+);

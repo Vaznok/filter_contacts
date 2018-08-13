@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://www.ehcache.org/ehcache.xsd">
+    <cache name="contacts"
+           maxBytesLocalHeap="2800M"
+           overflowToDisk="false"
+           memoryStoreEvictionPolicy="FIFO">
+        <sizeOfPolicy maxDepth="10000000"/>
+    </cache>
+
+
+</ehcache>

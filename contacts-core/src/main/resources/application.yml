@@ -1,0 +1,36 @@
+server:
+  servlet:
+    context-path: /hello
+spring:
+  #JPA specific configs
+  jpa:
+    connection.provider_class: org.hibernate.hikaricp.internal.HikariCPConnectionProvider
+    properties:
+      hibernate:
+        temp.use_jdbc_metadata_defaults: false
+        default_schema: contacts
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        ddl-auto: update
+        use_sql: true
+        id.new_generator_mappings: false
+        search.autoregister_listeners: false
+        bytecode.use_reflection_optimizer: false
+  cache:
+    ehcache:
+      config: classpath:ehcache.xml
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: root
+    hikari:
+      minimumIdle: 5
+      maximumPoolSize: 40
+      idleTimeout: 30000
+      poolName: SpringBootJPAHikariCP
+      maxLifetime: 2000000
+      connectionTimeout: 10000
+custom:
+  dataSelectLimit: 340000
+  maxRegexpLength: 50
