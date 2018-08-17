@@ -2,7 +2,7 @@
 <ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="http://www.ehcache.org/ehcache.xsd">
     <cache name="contacts"
-           maxBytesLocalHeap="2800M"
+           maxBytesLocalHeap="1G"
            overflowToDisk="false"
            memoryStoreEvictionPolicy="FIFO">
         <sizeOfPolicy maxDepth="10000000"/>
