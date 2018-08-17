@@ -35,8 +35,8 @@ public class ContactCache {
             long start = System.nanoTime();
             List<Contact> contacts = contactRepository.findAll(PageRequest.of(offset/limit, limit)).getContent();
             long finish = System.nanoTime();
-            logger.info(String.format("Thread=%s. Execution time=%d ms. Items=%s.",
-                    Thread.currentThread().getName(), (finish - start) / 1000000, contacts.size()));
+            logger.info(String.format("Select query limit=%d. Offset=%d. Thread=%s. Execution time=%d ms. Withdraw items=%s.",
+                    limit, offset, Thread.currentThread().getName(), (finish - start) / 1000000, contacts.size()));
             return contacts;
         } else {
             String message = String.format("Argument 'offset' must be >= '0' but was %d." +

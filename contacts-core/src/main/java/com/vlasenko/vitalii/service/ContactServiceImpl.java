@@ -51,17 +51,9 @@ public class ContactServiceImpl implements ContactService {
             offset += QUERY_LIMIT;
         } while (contacts.size() == QUERY_LIMIT);
         long finish = System.nanoTime();
-        logger.info(String.format("Thread=%s. Execution time=%d ms. Regexp=%s.",
+        logger.info(String.format("Filtering completed. Thread=%s. Execution time=%d ms. Regexp=%s.",
                 Thread.currentThread().getName(), (finish - start) / 1000000, regexp));
         return filteredContacts;
-    }
-
-    /*
-     * todo: method was created in order to load big data to database. On the real prod should be deleted
-     * */
-    @Override
-    public List<Contact> saveAll(List<Contact> contacts) {
-        return contactRepository.saveAll(contacts);
     }
 
     List<Contact> findByRegexp(List<Contact> contacts, String regexp) {
@@ -72,7 +64,7 @@ public class ContactServiceImpl implements ContactService {
                 .filter(person -> !pattern.matcher(person.getName()).matches())
                 .collect(Collectors.toList());
         long finish = System.nanoTime();
-        logger.info(String.format("Thread=%s. Execution time=%d ms. Filtered items=%s.",
+        logger.info(String.format("Filtering portion. Thread=%s. Execution time=%d ms. Filtered items=%s.",
                 Thread.currentThread().getName(), (finish - start) / 1000000, filteredContacts.size()));
         return filteredContacts;
     }

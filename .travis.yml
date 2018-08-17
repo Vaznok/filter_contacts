@@ -5,7 +5,7 @@ services:
   - docker
 before_install:
   - docker image build -t vaznok/postgres .
-  - docker container run --name vaznok/postgresdb -d -p 5555:5432 -e POSTGRES_PASSWORD=root vaznok/postgres
-  - docker container start vaznok/postgresdb
+  - docker container run --name postgresdb -d -p 5555:5432 -e POSTGRES_PASSWORD=root vaznok/postgres
+  - docker container start postgresdb
 script:
  - mvn clean verify
