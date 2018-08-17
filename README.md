@@ -1,0 +1,1 @@
+https://travis-ci.com/Vaznok/filter_contacts.svg?branch=master
