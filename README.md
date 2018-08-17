@@ -16,7 +16,7 @@
 ### Respone output
 	Simple json file with filtered data. 
 
-### Notes:
+### Notes
 	 1. In order to use different regexp, it must be encoded to special URL format. It can be done here https://www.urlencoder.org/
 	 2. There are 1 000 000 rows in database. 
 	 3. If a json's reader can't open gotten json file, open it with standart Notepad. It issue appears when json file is to big.
