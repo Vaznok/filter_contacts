@@ -3,6 +3,5 @@
 logs
 target
 *.iml
-.vagrant
-*.ppk
-*.log
+
+
