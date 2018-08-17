@@ -21,7 +21,7 @@ import static org.junit.Assert.assertEquals;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @ContextConfiguration(classes = JPAGeneralTestConfig.class)
-@ActiveProfiles("testh2")
+@ActiveProfiles("test")
 @EnableAutoConfiguration
 public class ContactCacheTest {
     @Autowired
