@@ -21,7 +21,7 @@
 	 2. There are 1 000 000 rows in database. 
 	 3. If a json's reader can't open gotten json file, open it with standart Notepad. It issue appears when json file is to big.
 	 4. To manage RAM overflow and increase speed of request/response were used:
-	 	- configurable (config ehcache.xml)  cache implementation `ehcache`. Where we can allocate RAM memory according to the server power.
+	 	- configurable (config ehcache.xml) cache, implementation `ehcache2.0`. Where we can allocate RAM memory according to the server power.
 		- configurable query select volume in (config application.yml) to filter data by pieces.
 	 5. ContactCache class was created separately from ContactServiceImpl class because of the next reason:
 	    Spring cache is not working when calling cached method from another method of the same bean.
