@@ -41,15 +41,15 @@ public class ContactServiceImpl implements ContactService {
             logger.info(message);
             throw new IllegalArgumentException(message);
         }
+        long contactsCount = contactRepository.count();
         int offset = 0;
-        List<Contact> contacts;
         List<Contact> filteredContacts = new ArrayList<>();
-        do {
-            contacts = contactCache.findRange(offset, QUERY_LIMIT);
+        while(offset < contactsCount) {
+            List<Contact> contacts = contactCache.findRange(offset, QUERY_LIMIT);
             findByRegexp(contacts, regexp);
             filteredContacts.addAll(findByRegexp(contacts, regexp));
             offset += QUERY_LIMIT;
-        } while (contacts.size() == QUERY_LIMIT);
+        }
         long finish = System.nanoTime();
         logger.info(String.format("Filtering completed. Thread=%s. Execution time=%d ms. Regexp=%s.",
                 Thread.currentThread().getName(), (finish - start) / 1000000, regexp));
