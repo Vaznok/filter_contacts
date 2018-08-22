@@ -71,8 +71,10 @@ public class ContactServiceImpl implements ContactService {
 
     @EventListener(ApplicationReadyEvent.class)
     private void createCacheOnStartUp() {
+        long contactsCount = contactRepository.count();
         int offset = 0;
-        while (contactCache.findRange(offset, QUERY_LIMIT).size() == QUERY_LIMIT) {
+        while (offset < contactsCount) {
+            contactCache.findRange(offset, QUERY_LIMIT);
             offset += QUERY_LIMIT;
         }
     }
